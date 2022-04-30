@@ -1,1 +1,16 @@
+POFProxy News:
+
 Shadow Ban Fixed
+Added /kickall, /tradeall, /banall
+Added /warpdoor [worldname] [doorid]
+Added Wrench Pull/kick/ban
+Added /fd (fast drop), /ft (fast trash)
+Added /country [country]
+
+All Features:
+/pofnews (news) ,/proxy (features), /kickall, /tradeall, /banall /warpdoor [worldname] [doorid], 
+/warp [worldname], /fd (fast drop), /ft (fast trash), /country [country], /skin [skin number],
+/name [nick] (any nick you want visual),  /flag [itemid] (flag changes to writed item id visual),
+/ghost (be ghost you can move but people cant see), /uid [playername] (gets uid from playername),
+/tp [playername] (teleport to player), /pofversion (shows pofproxy version), /pofstatus (status of proxy),
+/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use), /wrenchmode (actives wrench pull/kick/ban)
