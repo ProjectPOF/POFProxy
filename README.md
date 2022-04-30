@@ -1,5 +1,5 @@
 # Growtopia Proxy
-**Soon will be there,**
+**My Discord: ProB1#0100**
 
 This is a proxy for [Growtopia](https://growtopiagame.com/).
 
