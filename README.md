@@ -4,7 +4,7 @@
 This is a proxy for [Growtopia](https://growtopiagame.com/).
 
 ## 📜 Features
-- [x] fixed shadow ban
+- [x] Fixed shadow ban
 - [x] More Commands
 
 ## 📝 Requirements
