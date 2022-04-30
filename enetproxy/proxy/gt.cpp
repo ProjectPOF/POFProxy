@@ -6,9 +6,9 @@
 #include <fstream>
 #include <string>
 
-std::string gt::version = "3.86";
-std::string gt::pofversion = "NULL";
-std::string gt::pofstatus = "NULL";
+std::string gt::version = "3.87";
+std::string gt::pofversion = "0.1";
+std::string gt::pofstatus = "Updated";
 std::string gt::flag = "tr";
 bool gt::resolving_uid2 = false;
 bool gt::connecting = false;
