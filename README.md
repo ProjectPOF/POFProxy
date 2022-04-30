@@ -5,7 +5,7 @@ This is a proxy for [Growtopia](https://growtopiagame.com/).
 
 ## 📜 Features
 - [x] fixed shadow ban
-- [ ] Game Menu
+- [x] More Commands
 
 ## 📝 Requirements
 - Visual Studio
