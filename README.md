@@ -11,5 +11,9 @@ This is a proxy for [Growtopia](https://growtopiagame.com/).
 - Visual Studio
 - Microsoft Visual C++ Redistributable
 
+## TODO
+- Auto Reconnect
+- More Features
+
 ## Credits
 - Amateurz
