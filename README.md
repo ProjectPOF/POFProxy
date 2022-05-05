@@ -3,6 +3,9 @@
 
 This is a proxy for [Growtopia](https://growtopiagame.com/).
 
+## version
+**i will make premium version will has more features**
+
 ## 📜 Features
 - [x] Fixed shadow ban
 - [x] More Commands
