@@ -3,8 +3,9 @@
 
 This is a proxy for [Growtopia](https://growtopiagame.com/).
 
-## version
-**i will make premium version will has more features**
+## info
+- i dont gonna update this project's free version anymore,
+- Premium version here alr there will be videos for it **join discord for buy** 
 
 ## 📜 Features
 - [x] Fixed shadow ban
@@ -14,9 +15,6 @@ This is a proxy for [Growtopia](https://growtopiagame.com/).
 - Visual Studio
 - Microsoft Visual C++ Redistributable
 
-## TODO
-- Auto Reconnect
-- More Features
 
 ## Credits
 - Amateurz
