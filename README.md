@@ -26,6 +26,7 @@ $git clone https://github.com/ProjectPOF/POFProxy
 $cd POFProxy
 $cd enetproxy
 $bash build.sh
+$./proxy_linux
 ```
 - So now your proxy is installed on your android device
 - But how to operate it?
