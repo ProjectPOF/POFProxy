@@ -14,6 +14,7 @@ This is a proxy for [Growtopia](https://growtopiagame.com/).
 ```bash
 $termux-setup-storage
 $apt update
+$pkg upgrade
 $apt install clang
 ```
 - Do You Want Continue Y/N? 
