@@ -363,7 +363,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
         case fnv32("OnSendToServer"): g_server->redirect_server(varlist); return true;
 
         case fnv32("OnConsoleMessage"): {
-            varlist[1] = "`b[`pProB1#0100`b]``\n`b[`pPOFProxy`b]`` " + varlist[1].get_string();
+            varlist[1] = "`b[`pProB1#0100`b]```` " + varlist[1].get_string();
             g_server->send(true, varlist);
             return true;
         } break;
