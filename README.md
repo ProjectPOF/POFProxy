@@ -30,11 +30,9 @@ $bash build.sh
 - So now your proxy is installed on your android device
 - But how to operate it?
 
-- Download Virtual Hosts https://www.apkshub.com/app/com.github.xfalcon.vhosts
-- after download this https://cdn.discordapp.com/attachments/867241479630225439/972490766679158824/proxy
-- then open virtual hosts, click re-select hosts file then select proxy
+- Download GrowtopiaSigned.apk = apk will be there
 
-its all open growtopia and use it
+its all setup growtopia then open growtopia and use it
 <hr>
 
 ## 📜 Features
