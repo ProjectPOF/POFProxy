@@ -20,6 +20,7 @@ $apt install clang
 - Do You Want Continue Y/N? 
 
 type: y
+- then do these
 ```bash
 $git clone https://github.com/ProjectPOF/POFProxy
 $cd POFProxy
