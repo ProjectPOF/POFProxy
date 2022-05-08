@@ -31,7 +31,7 @@ $./proxy_linux
 - So now your proxy is installed on your android device
 - But how to operate it?
 
-- Download GrowtopiaSigned.apk = apk will be there
+- Download GrowtopiaSigned.apk = https://www.mediafire.com/file/nkq40ckhyy4rovf/growtopia.apk/file
 
 its all setup growtopia then open growtopia and use it
 <hr>
