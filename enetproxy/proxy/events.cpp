@@ -247,23 +247,31 @@ bool events::out::generictext(std::string packet) {
             }
             return true;
         } else if (find_command(chat, "pofnews")) {
-            gt::send_log("`pPOFNEWS");
+            std::string proxynews;
+            proxynews =
+                "\nadd_label_with_icon|big|POFProxy News!|left|32|"
+		"\nadd_textbox|`2Shadow Ban Fixed|left|2480|"
+                "\nadd_spacer|small"
+                "\nadd_textbox|`b/kickall, /tradeall, /banall|left|2480|"
+		"\nadd_textbox|`b/wrenchset [pull/kick/ban]|left|2480|"
+		"\nadd_textbox|`b/country [country]|left|2480|"
+		"\nadd_textbox|`b/fd (fast drop), /ft (fast trash)|left|2480|"
+                "\nadd_quick_exit|"
+                "\nend_dialog|end|Cancel|Okay|";
+            variantlist_t packett{ "OnDialogRequest" };
+            packett[1] = proxynews;
+            g_server->send(true, packett);
             return true;
         } else if (find_command(chat, "proxy")) {
             std::string proxy;
             proxy =
-                "\nadd_label_with_icon|big|Proxy Commands|left|32|"
-                "\nadd_spacer|small"
-                "\nadd_textbox|`b/proxy `#(shows commands)|left|2480|"
-				"\nadd_textbox|`b/pofnews `#(shows pofproxy news)|left|2480|"
-				"\nadd_textbox|`b/pofversion `#(shows pofproxy version)|left|2480|"
-				"\nadd_textbox|`b/pofstatus `#(shows pofproxy status)|left|2480|"
-                "\nadd_textbox|`9OTHERS WILL BE ADDED LATER|left|2480|"
-                "\nadd_quick_exit|"
-                "\nend_dialog|end|Cancel|Okay|";
-            variantlist_t packett{ "OnDialogRequest" };
-            packett[1] = proxy;
-            g_server->send(true, packett);
+		"/pofproxy (general), /proxy (features), /kickall, /tradeall, /banall /warpdoor [worldname] [doorid],"
+		"/warp [worldname], /fd (fast drop), /ft (fast trash), /country [country], /skin [skin number],"
+		"/name [nick] (any nick you want visual),  /flag [itemid] (flag changes to writed item id visual),"
+		"/ghost (be ghost you can move but people cant see), /uid [playername] (gets uid from playername),"
+		"/tp [playername] (teleport to player), /pofversion (shows pofproxy version), /pofstatus (status of proxy),"
+	        "/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use), /wrenchmode (actives wrench pull/kick/ban)"
+            gt::send_log(proxy);
             return true;
         } else if (find_command(chat, "pofversion")) {
             gt::send_log("`bPOFVersion: `p" + gt::pofversion);
