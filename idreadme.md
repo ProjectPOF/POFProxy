@@ -1,12 +1,21 @@
+# Growtopia Proxy
+[![Discord](https://img.shields.io/discord/952524017208819722?color=%23000000&style=plastic?label=discord)](https://discord.gg/EVm5aWSKcA)
+
+This is a proxy for [Growtopia](https://growtopiagame.com/).
+
+## info
+- i dont gonna update this project's free version anymore,
+- Premium version here alr there will be videos for it **join discord for buy** https://discord.gg/EVm5aWSKcA
+
 <h2>Android (Termux)</h2>
 
 - Instal Termux di Google Play Store atau [klik di sini](https://play.google.com/store/apps/details?id=com.termux)
 - Buka Termux dan jalankan perintah ini
 ```bash
 $termux-setup-storage
-$apt update
-$pkg upgrade
-$apt install clang
+$perbaruan tepat
+$pkg peningkatan
+$apt install dentang
 ```
 - Apakah Anda Ingin Lanjutkan Y/N?
 
@@ -17,13 +26,24 @@ $git clone https://github.com/ProjectPOF/POFProxy
 $cd POFProxy
 $cd enetproxy
 $bash build.sh
+$./proxy_linux
 ```
 - Jadi sekarang proxy Anda sudah terpasang di perangkat android Anda
 - Tapi bagaimana cara mengoperasikannya?
 
-- Unduh Host Virtual https://www.apkshub.com/app/com.github.xfalcon.vhosts
-- setelah mengunduh ini https://cdn.discordapp.com/attachments/867241479630225439/972490766679158824/proxy
-- lalu buka virtual host, klik pilih ulang file hosts lalu pilih proxy
+- Unduh GrowtopiaSigned.apk = https://www.mediafire.com/file/nkq40ckhyy4rovf/growtopia.apk/file
 
-ini semua growtopia terbuka dan menggunakannya
+semua atur growtopia lalu buka growtopia dan gunakan
 <hr>
+
+## 📜 Features
+- [x] Fixed shadow ban
+- [x] More Commands
+
+## 📝 Requirements
+- Visual Studio
+- Microsoft Visual C++ Redistributable
+
+
+## Credits
+- Amateurz
