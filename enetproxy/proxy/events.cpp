@@ -270,7 +270,7 @@ bool events::out::generictext(std::string packet) {
 		"/name [nick] (any nick you want visual),  /flag [itemid] (flag changes to writed item id visual),"
 		"/ghost (be ghost you can move but people cant see), /uid [playername] (gets uid from playername),"
 		"/tp [playername] (teleport to player), /pofversion (shows pofproxy version), /pofstatus (status of proxy),"
-	        "/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use), /wrenchmode (actives wrench pull/kick/ban)"
+	        "/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use), /wrenchmode (actives wrench pull/kick/ban)";
             gt::send_log(proxy);
             return true;
         } else if (find_command(chat, "pofversion")) {
