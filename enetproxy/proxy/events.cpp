@@ -298,14 +298,18 @@ bool events::out::generictext(std::string packet) {
         var.set("meta", g_server->meta);
         var.set("game_version", gt::version);
         var.set("country", gt::flag);
-		
-
+	if (var.find("tankIDName")) {
+	    var.find("platformID")->m_values[0] = "4"; //android
+	    var.remove("fz");
+            var.remove("rid");
+	}
         //Finally patched, I guess they finally managed to fix this after maybe a year!
 
         //if (var.find("tankIDName") && gt::aapbypass) {
         //    var.find("mac")->m_values[0] = "02:00:00:00:00:00";
         //    var.find("platformID")->m_values[0] = "4"; //android
-        //    var.remove("fz");
+        //    
+	    var.remove("fz");
         //    var.remove("rid");
         //}
 
@@ -355,12 +359,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
         gt::in_game = true;
 
     switch (hs::hash32(func.c_str())) {
-        //solve captcha
-        case fnv32("onShowCaptcha"): {
-            auto menu = varlist[1].get_string();
-            gt::solve_captcha(menu);
-            return true;
-        } break;
+       
         case fnv32("OnRequestWorldSelectMenu"): {
             auto& world = g_server->m_world;
             world.players.clear();
