@@ -298,11 +298,11 @@ bool events::out::generictext(std::string packet) {
         var.set("meta", g_server->meta);
         var.set("game_version", gt::version);
         var.set("country", gt::flag);
-	if (var.find("tankIDName")) {
-	    var.find("platformID")->m_values[0] = "4"; //android
-	    var.remove("fz");
-            var.remove("rid");
-	}
+	//if (var.find("tankIDName")) {
+	//    var.find("platformID")->m_values[0] = "4"; //android
+	//    var.remove("fz");
+        //    var.remove("rid");
+	//}
 
         packet = var.serialize();
         gt::in_game = false;
