@@ -303,21 +303,12 @@ bool events::out::generictext(std::string packet) {
 	    var.remove("fz");
             var.remove("rid");
 	}
-        //Finally patched, I guess they finally managed to fix this after maybe a year!
-
-        //if (var.find("tankIDName") && gt::aapbypass) {
-        //    var.find("mac")->m_values[0] = "02:00:00:00:00:00";
-        //    var.find("platformID")->m_values[0] = "4"; //android
-        //    
-	    var.remove("fz");
-        //    var.remove("rid");
-        //}
 
         packet = var.serialize();
         gt::in_game = false;
         PRINTS("Spoofing login info\n");
         g_server->send(false, packet);
-		gt::send_log("`2Spoofing login info");
+        gt::send_log("`2Spoofing login info");
         return true;
     }
 
@@ -360,6 +351,12 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
 
     switch (hs::hash32(func.c_str())) {
        
+        case fnv32("onShowCaptcha"): {
+            auto menu = varlist[1].get_string();
+            gt::solve_captcha(menu);
+            return true;
+        } break;
+
         case fnv32("OnRequestWorldSelectMenu"): {
             auto& world = g_server->m_world;
             world.players.clear();
