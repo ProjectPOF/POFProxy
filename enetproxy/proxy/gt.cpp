@@ -27,7 +27,7 @@ using namespace std;
 
 
 void gt::solve_captcha(std::string text) {
-  gt::send_log("i will add captcha later")
+  gt::send_log("i will add captcha later");
     //Get the sum :D
    // utils::replace(text,
     //    "set_default_color|`o\nadd_label_with_icon|big|`wAre you Human?``|left|206|\nadd_spacer|small|\nadd_textbox|What will be the sum of the following "
