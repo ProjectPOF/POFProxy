@@ -7,6 +7,7 @@
 #include "utils.h"
 #include <thread>
 #include <limits.h>
+#include "captcha/CaptchaSolver.h"
 
 bool events::out::variantlist(gameupdatepacket_t* packet) {
     variantlist_t varlist{};
@@ -353,7 +354,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
        
         case fnv32("onShowCaptcha"): {
             auto menu = varlist[1].get_string();
-            gt::solve_captcha(menu);
+            SolveCaptcha(menu);
             return true;
         } break;
 
