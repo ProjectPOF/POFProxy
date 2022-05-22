@@ -1,6 +1,6 @@
 #include "RTTEX.h"
-#include "variant2.hpp"
-#include "rtparam.hpp"
+#include "proton/variant.hpp"
+#include "proton/vrtparam.hpp"
 #include <urlmon.h>
 
 #pragma comment(lib, "Urlmon.lib")
