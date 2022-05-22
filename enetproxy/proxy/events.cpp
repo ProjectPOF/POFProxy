@@ -7,7 +7,6 @@
 #include "utils.h"
 #include <thread>
 #include <limits.h>
-#include "captcha/CaptchaSolver.h"
 
 bool events::out::variantlist(gameupdatepacket_t* packet) {
     variantlist_t varlist{};
@@ -354,7 +353,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
        
         case fnv32("onShowCaptcha"): {
             auto menu = varlist[1].get_string();
-            SolveCaptcha(menu);
+            gt::SolveCaptcha(menu);
             return true;
         } break;
 
@@ -379,7 +378,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
             {
                 if (content.find("end_dialog|captcha_submit||Submit|") != -1) 
                 {
-                    gt::solve_captcha(content);
+                    gt::SolveCaptcha(content);
                     return true;
                 }
                 if (content.find("add_label_with_icon|big|`wThe Growtopia Gazette") != -1) {
