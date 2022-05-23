@@ -1,2 +1,0 @@
-#POFProxyCurrentVersion=0.1
-#POFProxyCurrentStatus=Updated
