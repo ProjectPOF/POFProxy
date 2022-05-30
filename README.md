@@ -16,11 +16,10 @@ $termux-setup-storage
 $apt update
 $pkg upgrade
 $apt install clang
+$rm -rf POFProxy
 ```
-- Do You Want Continue Y/N? 
+- Do You Want Continue Y/N? Answer gonna always be: Y
 
-type: y
-- then do these
 ```bash
 $git clone https://github.com/ProjectPOF/POFProxy
 $cd POFProxy
