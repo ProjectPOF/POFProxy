@@ -5,7 +5,7 @@ This is a proxy for [Growtopia](https://growtopiagame.com/).
 
 ## info
 - i dont gonna update this project's free version anymore,
-- Premium version here alr there will be videos for it **join discord for buy** https://discord.gg/EVm5aWSKcA
+- Premium version here alr there will be videos for it **join discord for buy** [discord](https://discord.gg/EVm5aWSKcA)
 
 <h2>Android (Termux)</h2>
 
