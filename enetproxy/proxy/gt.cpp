@@ -39,26 +39,3 @@ using namespace std;
     g_server->send(true, "action|log\nmsg|" + text, NET_MESSAGE_GAME_MESSAGE);
     }
 
-void gt::SolveCaptcha(std::string text)
-{
-    //thanks to HeySurfer
-  auto spcaptch = split(text, "|");
-  std::string captchaid = spcaptch[1];
-  utils::replace(captchaid, "0098/captcha/generated/", "");
-  utils::replace(captchaid, "PuzzleWithMissingPiece.rttex", "");
-  captchaid = captchaid.substr(0, captchaid.size() - 1);
-  http::Request request{"http://api.surferstealer.com/captcha/index?CaptchaID"+captchaid};
-  const auto response = request.send("GET");
-  std::string captchaAnswer = std::string{response.body.begin(), response.body.end()};
-  if (captchaAnswer.find("Failed") != std::string::npos) 
-      std::cout << "Captcha Failed!" << '\n';
-      gt::send_log("`bCaptcha Failed!");
-  else if (captchaAnswer.find("Answer|") != std::string::npos) 
-  {
-        std::cout << "Captcha Success!" << '\n';
-        std::cout << captchaAnswer<< '\n';
-        gt::send_log("`2Captcha Success!");
-        return captchaAnswer;
-  }
-    return "Fail";
-}
