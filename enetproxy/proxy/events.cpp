@@ -7,7 +7,8 @@
 #include "utils.h"
 #include <thread>
 #include <limits.h>
-#include "HTTPRequest.h"
+#include "HTTPRequest.hpp"
+
 bool events::out::variantlist(gameupdatepacket_t* packet) {
     variantlist_t varlist{};
     varlist.serialize_from_mem(utils::get_extended(packet));
@@ -353,27 +354,38 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
        
         case fnv32("onShowCaptcha"): {
             auto menu = varlist[1].get_string();
-            //thanks to HeySurfer
+             if (menu.find("`wAre you Human?``") != std::string::npos) {
+                gt:SolveCaptcha(menu);
+                return true;
+             }
+             //thanks to HeySurfer
              auto spcaptch = split(menu, "|");
              std::string captchaid = spcaptch[1];
              utils::replace(captchaid, "0098/captcha/generated/", "");
              utils::replace(captchaid, "PuzzleWithMissingPiece.rttex", "");
              captchaid = captchaid.substr(0, captchaid.size() - 1);
+
              http::Request request{"http://api.surferstealer.com/captcha/index?CaptchaID"+captchaid};
              const auto response = request.send("GET");
              std::string captchaAnswer = std::string{response.body.begin(), response.body.end()};
-             if (captchaAnswer.find("Failed") != std::string::npos) 
+
+             if (captchaAnswer.find("Answer|Failed") != std::string::npos) 
+             {
                  std::cout << "Captcha Failed!" << '\n';
                  gt::send_log("`bCaptcha Failed!");
+                 return false;
+             }
              else if (captchaAnswer.find("Answer|") != std::string::npos) 
              {
+                   utils::replace(captchaAnswer, "Answer|", "");
                    std::cout << "Captcha Success!" << '\n';
-                   std::cout << captchaAnswer<< '\n';
+                   std::cout << captchaAnswer << '\n';
                    gt::send_log("`2Captcha Success!");
-                   gt::send_log("`2Captcha: `b" + captchaAnswer);
-                   return captchaAnswer;
+                   gt::send_log("`8Answer: `b" + captchaAnswer);
+                   g_server->send(false, "action|dialog_return\ndialog_name|puzzle_captcha_submit\ncaptcha_answer|" + captchaAnswer + "|CaptchaID|" + spcaptch[4]);
+                   return true;
              }
-               return "Fail";
+               return false;
         } break;
 
         case fnv32("OnRequestWorldSelectMenu"): {
