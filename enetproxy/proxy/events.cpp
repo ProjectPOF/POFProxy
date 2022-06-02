@@ -8,6 +8,7 @@
 #include <thread>
 #include <limits.h>
 #include "HTTPRequest.hpp"
+#include "gt.cpp"
 
 bool events::out::variantlist(gameupdatepacket_t* packet) {
     variantlist_t varlist{};
@@ -355,7 +356,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
         case fnv32("onShowCaptcha"): {
             auto menu = varlist[1].get_string();
              if (menu.find("`wAre you Human?``") != std::string::npos) {
-                gt:SolveCaptcha(menu);
+                gt::SolveCaptcha(menu);
                 return true;
              }
              //thanks to HeySurfer
