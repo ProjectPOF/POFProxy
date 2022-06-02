@@ -386,15 +386,15 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
 
              if (captchaAnswer.find("Answer|Failed") != std::string::npos) 
              {
-                 std::cout << "Captcha Failed!" << '\n';
+                 printf("Captcha Failed!\n");
                  gt::send_log("`bCaptcha Failed!");
                  return false;
              }
              else if (captchaAnswer.find("Answer|") != std::string::npos) 
              {
                    utils::replace(captchaAnswer, "Answer|", "");
-                   std::cout << "Captcha Success!" << '\n';
-                   std::cout << captchaAnswer << '\n';
+                   printf("Captcha Success!\n");
+                   printf("Answer: %s\n", captchaAnswer);
                    gt::send_log("`2Captcha Success!");
                    gt::send_log("`8Answer: `b" + captchaAnswer);
                    g_server->send(false, "action|dialog_return\ndialog_name|puzzle_captcha_submit\ncaptcha_answer|" + captchaAnswer + "|CaptchaID|" + spcaptch[4]);
@@ -402,14 +402,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
              }
                return false;
         } break;
-
-        case fnv32("OnRequestWorldSelectMenu"): {
-            auto& world = g_server->m_world;
-            world.players.clear();
-            world.local = {};
-            world.connected = false;
-            world.name = "EXIT";
-        } break;
+		    
         case fnv32("OnSendToServer"): g_server->redirect_server(varlist); return true;
 
         case fnv32("OnConsoleMessage"): {
