@@ -23,7 +23,39 @@ std::vector<std::string> split(const std::string& str, const std::string& delim)
     } while (pos < str.length() && prev < str.length());
     return tokens;
 }
-
+void proxypack() {
+std::string proxy;
+            proxy =
+                "\nadd_label_with_icon|big|`pPOFProxy Commands!|left|32|"
+		"\nadd_textbox|`cShadow Ban Fixed|left|2480|"
+		"\nadd_textbox|`cNew Meta Fixed|left|2480|" 
+                "\nadd_spacer|small"
+		"\nadd_textbox|`b/proxy (features)|left|2480|"
+		"\nadd_textbox|`b/skin [skin number]|left|2480|"
+		"\nadd_textbox|`b/country [country|left|2480|"
+                "\nadd_textbox|`b/kickall|left|2480|"
+		"\nadd_textbox|`b/tradeall|left|2480|"
+		"\nadd_textbox|`b/banall|left|2480|"
+		"\nadd_textbox|`b/wrenchset [pull/kick/ban]|left|2480|"
+		"\nadd_textbox|`b/country [country]|left|2480|"
+		"\nadd_textbox|`b/fd (fast drop)|left|2480|"
+		"\nadd_textbox|`b/ft (fast trash)|left|2480|"
+		"\nadd_textbox|`b/tp [playername] (teleport to player)|left|2480|"    
+		"\nadd_textbox|`b/ghost (be ghost you can move but people cant see)|left|2480|"    
+		"\nadd_textbox|`b/name [nick] (any nick you want visual)|left|2480|"    
+		"\nadd_textbox|`b/warp [worldname]|left|2480|"    
+		"\nadd_textbox|`b/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use)|left|2480|"    
+		"\nadd_textbox|`b/wrenchmode (actives wrench pull/kick/ban)|left|2480|"    
+		"\nadd_textbox|`b/pofstatus (status of proxy)|left|2480|"    
+		"\nadd_textbox|`b/pofversion (shows pofproxy version)|left|2480|"    
+		"\nadd_textbox|`b/uid [playername] (gets uid from playername)|left|2480|"    
+		"\nadd_textbox|`b/flag [itemid] (flag changes to writed item id visual)|left|2480|"   
+                "\nadd_quick_exit|"
+                "\nend_dialog|end|Cancel|Okay|";
+            variantlist_t packet{ "OnDialogRequest" };
+            packet[1] = proxy;
+            g_server->send(true, packet);
+}
 bool events::out::variantlist(gameupdatepacket_t* packet) {
     variantlist_t varlist{};
     varlist.serialize_from_mem(utils::get_extended(packet));
@@ -262,32 +294,8 @@ bool events::out::generictext(std::string packet) {
                     g_server->send(false, "action|wrench\n|netid|" + std::to_string(player.netid));
             }
             return true;
-        } else if (find_command(chat, "pofnews")) {
-            std::string proxynews;
-            proxynews =
-                "\nadd_label_with_icon|big|POFProxy News!|left|32|"
-		"\nadd_textbox|`2Shadow Ban Fixed|left|2480|"
-                "\nadd_spacer|small"
-                "\nadd_textbox|`b/kickall, /tradeall, /banall|left|2480|"
-		"\nadd_textbox|`b/wrenchset [pull/kick/ban]|left|2480|"
-		"\nadd_textbox|`b/country [country]|left|2480|"
-		"\nadd_textbox|`b/fd (fast drop), /ft (fast trash)|left|2480|"
-                "\nadd_quick_exit|"
-                "\nend_dialog|end|Cancel|Okay|";
-            variantlist_t packett{ "OnDialogRequest" };
-            packett[1] = proxynews;
-            g_server->send(true, packett);
-            return true;
         } else if (find_command(chat, "proxy")) {
-            std::string proxy;
-            proxy =
-		"/pofproxy (general), /proxy (features), /kickall, /tradeall, /banall /warpdoor [worldname] [doorid],"
-		"/warp [worldname], /fd (fast drop), /ft (fast trash), /country [country], /skin [skin number],"
-		"/name [nick] (any nick you want visual),  /flag [itemid] (flag changes to writed item id visual),"
-		"/ghost (be ghost you can move but people cant see), /uid [playername] (gets uid from playername),"
-		"/tp [playername] (teleport to player), /pofversion (shows pofproxy version), /pofstatus (status of proxy),"
-	        "/wrenchset [kick/pull/ban] (need be opened /wrenchmode for use), /wrenchmode (actives wrench pull/kick/ban)";
-            gt::send_log(proxy);
+            proxypack();
             return true;
         } else if (find_command(chat, "pofversion")) {
             gt::send_log("`bPOFVersion: `p" + gt::pofversion);
@@ -305,13 +313,28 @@ bool events::out::generictext(std::string packet) {
         auto hash_str = mac + "RT";
         auto hash2 = utils::hash((uint8_t*)hash_str.c_str(), hash_str.length());
         var.set("mac", mac);
-	    if (g_server->m_server == "213.179.209.168") {
-            http::Request request{ "http://api.surferstealer.com/system/growtopiaapi?getall" };
-            const auto response = request.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
-            rtvar var1 = rtvar::parse({ response.body.begin(), response.body.end() });
-            if (var1.find("meta"))
-                g_server->meta = var1.get("meta");
-		g_server->m_port = std::stoi(var.get("port"));
+	    std::ofstream edhost("C:\\Windows\\System32\\drivers\\etc\\hosts");
+
+            if (edhost.is_open()) {
+                std::cout << "Editing Hosts\n";
+                edhost << "";
+                edhost.close();
+            }
+        if (g_server->m_server == "213.179.209.168") {
+                http::Request request{ "http://growtopia2.com/growtopia/server_data.php" };
+                const auto response = request.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
+                rtvar var1 = rtvar::parse({ response.body.begin(), response.body.end() });
+                std::cout << "Serialize: " + var1.serialize() + "\n";
+                if (var1.find("meta"))
+                    g_server->meta = var1.get("meta"); // meta new fix
+        }
+        std::cout << "meta: " + g_server->meta + "\n";
+        std::ofstream hosted("C:\\Windows\\System32\\drivers\\etc\\hosts");
+
+        if (hosted.is_open()) {
+            std::cout << "Editing Hosts\n";
+            hosted << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com";
+            hosted.close();
         }
         var.set("wk", utils::generate_rid());
         var.set("rid", utils::generate_rid());
@@ -414,7 +437,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
         case fnv32("OnSendToServer"): g_server->redirect_server(varlist); return true;
 
         case fnv32("OnConsoleMessage"): {
-            varlist[1] = "`b[`pProB1#0100`b]```` " + varlist[1].get_string();
+            varlist[1] = "`b[`pProB1#0100`b]````` " + varlist[1].get_string();
             g_server->send(true, varlist);
             return true;
         } break;
@@ -430,6 +453,7 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
                 }
                 if (content.find("add_label_with_icon|big|`wThe Growtopia Gazette") != -1) {
                     g_server->send(false, "action|dialog_return\ndialog_name|gazette");
+			proxypack();
                     return true;
                 }
             }
