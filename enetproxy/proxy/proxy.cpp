@@ -43,7 +43,7 @@ void pofproxy()
     {
         http::Request request1{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/pofproxy" };
         http::Request request2{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/status" };
-        http::Request request3{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/gameversion.txt" };
+        http::Request request3{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/gameversion" };
         const auto response1 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
         const auto response2 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
         const auto response3 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
