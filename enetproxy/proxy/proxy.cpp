@@ -41,21 +41,6 @@ void pofproxy()
 {
     try
     {
-        http::Request request1{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/pofproxy" };
-        http::Request request2{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/status" };
-        http::Request request3{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/gameversion" };
-        const auto response1 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
-        const auto response2 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
-        const auto response3 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
-        std::string pofversion = { response1.body.begin(), response1.body.end() };
-        std::string pofstatus = { response2.body.begin(), response2.body.end() };
-        std::string gtversion = { response3.body.begin(), response3.body.end() };
-        cout << "1: " + gtversion + "\n";
-        cout << "2: " + pofversion + "\n";
-        cout << "3: " + pofstatus + "\n";*/
-        gt::version = gtversion;
-        gt::pofversion = pofversion; 
-        gt::pofstatus = pofstatus;
         cout << "Growtopia version: " + gt::version + "\n";
         cout << "POFProxy version: " + gt::pofversion + "\n";
         cout << "POFProxy status: " + gt::pofstatus + "\n";
