@@ -67,7 +67,7 @@ void edithost()
 void serverdata() {
     try
     {
-        http::Request serverdata{ "http://api.surferstealer.com/system/growtopiaapi?getall" };
+        http::Request serverdata{ "http://growtopia2.com/growtopia/server_data.php" };
         const auto response = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
         rtvar var = rtvar::parse({ response.body.begin(), response.body.end() });
 
