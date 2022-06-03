@@ -3,6 +3,9 @@
 
 This is a proxy for [Growtopia](https://growtopiagame.com/).
 
+For PC [download](https://github.com/ProjectPOF/POFProxy/releases/download/v0.10/proxy.exe)
+
+Android for you need go down and read Android Termux
 ## info
 - i dont gonna update this project's free version anymore,
 - Premium version here alr there will be videos for it **join discord for buy** [discord](https://discord.gg/EVm5aWSKcA)
@@ -46,3 +49,4 @@ its all setup growtopia then open growtopia and use it
 
 ## Credits
 - Amateurz
+- ProB1
