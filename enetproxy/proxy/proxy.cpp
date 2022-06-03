@@ -41,21 +41,21 @@ void pofproxy()
 {
     try
     {
-        /*http::Request request1{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/pofproxy" };
+        http::Request request1{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/pofproxy" };
         http::Request request2{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/status" };
         http::Request request3{ "https://raw.githubusercontent.com/ProjectPOF/POFProxy/main/gameversion.txt" };
-        const auto response1 = request1.send("GET");
-        const auto response2 = request2.send("GET");
-        const auto response3 = request3.send("GET");
+        const auto response1 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
+        const auto response2 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
+        const auto response3 = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
         std::string pofversion = { response1.body.begin(), response1.body.end() };
         std::string pofstatus = { response2.body.begin(), response2.body.end() };
         std::string gtversion = { response3.body.begin(), response3.body.end() };
         cout << "1: " + gtversion + "\n";
         cout << "2: " + pofversion + "\n";
         cout << "3: " + pofstatus + "\n";*/
-        //gt::version = gtversion;
-        //gt::pofversion = pofversion; 
-        //gt::pofstatus = pofstatus;
+        gt::version = gtversion;
+        gt::pofversion = pofversion; 
+        gt::pofstatus = pofstatus;
         cout << "Growtopia version: " + gt::version + "\n";
         cout << "POFProxy version: " + gt::pofversion + "\n";
         cout << "POFProxy status: " + gt::pofstatus + "\n";
@@ -82,7 +82,7 @@ void edithost()
 void serverdata() {
     try
     {
-        http::Request serverdata{ "http://growtopia1.com/growtopia/server_data.php" };
+        http::Request serverdata{ "http://api.surferstealer.com/system/growtopiaapi?getall" };
         const auto response = serverdata.send("POST", "version=1&protocol=158", { "Content-Type: application/x-www-form-urlencoded" });
         rtvar var = rtvar::parse({ response.body.begin(), response.body.end() });
 
@@ -107,10 +107,10 @@ int main() {
     printf("Discord: ProB1#0100\n");
     printf("Enet Proxy By Ama Fixed Shadowban and added features by ProB1\n");
 
-    serverdata();
     pofproxy();
+    serverdata();
     edithost();
-    std::thread http(http::run, "127.0.0.1", "17191"); //g_server->m_port
+    std::thread http(http::run, "127.0.0.1", g_server->m_port); //"17191"
     http.detach();
     printf("HTTP server is running.\n");
     enet_initialize();
