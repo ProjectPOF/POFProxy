@@ -311,6 +311,7 @@ bool events::out::generictext(std::string packet) {
             rtvar var1 = rtvar::parse({ response.body.begin(), response.body.end() });
             if (var1.find("meta"))
                 g_server->meta = var1.get("meta");
+		g_server->m_port = std::stoi(var.get("port"));
         }
         var.set("wk", utils::generate_rid());
         var.set("rid", utils::generate_rid());
