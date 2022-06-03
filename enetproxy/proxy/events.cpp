@@ -8,7 +8,8 @@
 #include <thread>
 #include <limits.h>
 #include "HTTPRequest.hpp"
-
+#include <iostream>
+#include <fstream>
 std::vector<std::string> split(const std::string& str, const std::string& delim)
 {
     std::vector<std::string> tokens;
