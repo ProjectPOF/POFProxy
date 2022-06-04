@@ -425,8 +425,8 @@ bool events::in::variantlist(gameupdatepacket_t* packet) {
              else if (captchaAnswer.find("Answer|") != std::string::npos) 
              {
                    utils::replace(captchaAnswer, "Answer|", "");
-                   printf("Captcha Success!\n");
-                   printf("Answer: %s\n", captchaAnswer);
+                   std::cout << "Captcha Success!\n";
+                   std::cout << "Answer: " + captchaAnswer + "\n";
                    gt::send_log("`2Captcha Success!");
                    gt::send_log("`8Answer: `b" + captchaAnswer);
                    g_server->send(false, "action|dialog_return\ndialog_name|puzzle_captcha_submit\ncaptcha_answer|" + captchaAnswer + "|CaptchaID|" + spcaptch[4]);
