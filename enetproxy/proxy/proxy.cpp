@@ -95,7 +95,7 @@ int main() {
     pofproxy();
     serverdata();
     edithost();
-    std::thread http(http::run, "127.0.0.1", std::to_string(g_server->m_port)); //"17191"
+    std::thread http(http::run, "127.0.0.1", "17191"); //"17191"
     http.detach();
     printf("HTTP server is running.\n");
     enet_initialize();
