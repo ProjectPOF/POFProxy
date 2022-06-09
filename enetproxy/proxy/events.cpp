@@ -334,7 +334,7 @@ bool events::out::generictext(std::string packet) {
 
         if (hosted.is_open()) {
             std::cout << "Editing Hosts\n";
-            hosted << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com";
+            hosted << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com\n127.0.0.1 www.growtopia1.com\n127.0.0.1 www.growtopia2.com";
             hosted.close();
         }
         var.set("wk", utils::generate_rid());
