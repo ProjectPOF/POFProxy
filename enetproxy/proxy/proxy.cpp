@@ -58,7 +58,7 @@ void edithost()
 
         if (shost.is_open()) {
             cout << "Editing Hosts\n";
-            shost << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com";
+            shost << "127.0.0.1 growtopia1.com\n127.0.0.1 growtopia2.com\n127.0.0.1 www.growtopia1.com\n127.0.0.1 www.growtopia2.com";
             shost.close();
         }
     }
