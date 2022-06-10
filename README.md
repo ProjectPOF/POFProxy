@@ -14,21 +14,22 @@ Android for you need go down and read Android Termux
 
 - Install Termux on Google Play Store or [click here](https://play.google.com/store/apps/details?id=com.termux)
 - Open Termux and run this command
+- ( information dont write $ ) 
 ```bash
-$termux-setup-storage
-$apt update
-$pkg upgrade
-$apt install clang
-$rm -rf POFProxy
+$ termux-setup-storage
+$ apt update
+$ pkg upgrade
+$ apt install clang
+$ rm -rf POFProxy
 ```
 - Do You Want Continue Y/N? Answer gonna always be: Y
 
 ```bash
-$git clone https://github.com/ProjectPOF/POFProxy
-$cd POFProxy
-$cd enetproxy
-$bash build.sh
-$./proxy_linux
+$ git clone https://github.com/ProjectPOF/POFProxy
+$ cd POFProxy
+$ cd enetproxy
+$ bash build.sh
+$ ./proxy_linux
 ```
 - So now your proxy is installed on your android device
 - But how to operate it?
