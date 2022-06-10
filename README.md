@@ -13,6 +13,7 @@ Android for you need go down and read Android Termux
 <h2>Android (Termux)</h2>
 
 - Install Termux on Google Play Store or [click here](https://play.google.com/store/apps/details?id=com.termux)
+- Download growtopia-modified.apk **you need download that for use proxy** = 
 - Open Termux and run this command
 - ( information dont write $ ) 
 ```bash
@@ -32,9 +33,6 @@ $ bash build.sh
 $ ./proxy_linux
 ```
 - So now your proxy is installed on your android device
-- But how to operate it?
-
-- Download growtopia-modified.apk = **you need download that** **soon**
 
 its all setup growtopia then open growtopia and use it
 <hr>
