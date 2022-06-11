@@ -18,9 +18,9 @@ Android for you need go down and read Android Termux
 - ( information dont write $ ) 
 ```bash
 $ termux-setup-storage
-$ apt update
-$ pkg upgrade
-$ apt install clang
+$ pkg update
+$ pkg install clang 
+$ pkg install git
 $ rm -rf POFProxy
 ```
 - Do You Want Continue Y/N? Answer gonna always be: Y
