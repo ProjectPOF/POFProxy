@@ -1,4 +1,5 @@
 # Growtopia Proxy
+- its old not working anymore  
 [![Discord](https://img.shields.io/discord/952524017208819722?color=%23000000&style=plastic?label=discord)](https://discord.gg/EVm5aWSKcA)
 
 This is a proxy for [Growtopia](https://growtopiagame.com/).
